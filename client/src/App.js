@@ -1,23 +1,28 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { ThemeContext, themes } from './contexts/ThemeContext';
+import GlobalState from './contexts/GlobalState';
 
 function App() {
+  const [state, setState] = useState({});
   return (
-    <ThemeContext.Provider value={themes.dark}>
+    <GlobalState.Provider value={[state, setState]}>
       <Child />
-    </ThemeContext.Provider>
+    </GlobalState.Provider>
   );
 }
 
 function Child() {
-  const theme = useContext(ThemeContext);
-  console.log(theme);
-  console.log(ThemeContext);
+  const [state, setState] = useContext(GlobalState);
+
+  useEffect(() => {
+    setState(state => ({...state, address: "dsfsdfsdfsdf"}))
+  }, []);
+
+  console.log(state);
   return (
     <div className="App">
-      <header className="App-header" style={{backgroundColor: theme.background}}>
+      <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -30,6 +35,7 @@ function Child() {
         >
           Learn React
         </a>
+        <button>Test Ethereum</button>
       </header>
     </div>
   )
