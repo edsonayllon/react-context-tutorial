@@ -6,7 +6,7 @@
 Creates a global state object using React Context.
 
 
-![Screenshot](./Screenshot_5.jpg)
+![Screenshot](./Screenshot_6.jpg)
 
 ## 2 | Getting Started
 
