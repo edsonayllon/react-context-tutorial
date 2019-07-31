@@ -35,7 +35,9 @@ function Child() {
         >
           Learn React
         </a>
-        <button>Test Ethereum</button>
+        <br />
+
+        <p>Open console to see global state object</p>
       </header>
     </div>
   )
